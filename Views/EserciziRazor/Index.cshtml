@@ -1,34 +1,59 @@
 ﻿@{
-    List<Pizza> lista = new List<Pizza>{
-        new Pizza("Margherita", "classica pizza margherita", "https://picsum.photos/500/300", 3.50),
-        new Pizza("Marinara", "Pizza marinara", "https://picsum.photos/500/300", 5.00),
-        new Pizza("Quattro formaggi", "Pizza con quattro formaggi differenti", "https://picsum.photos/500/300", 6.50),
-        new Pizza("Quattro stagioni", "Pizza ispirata alle stagioni", "https://picsum.photos/500/300", 7.50),
-        new Pizza("Wrustel e patatine", "Il titolo dice già tutto", "https://picsum.photos/500/300", 5.50)
-    };
+    <!--Milestone 1-->
+    var nome = "Simone";
+    var cognome = "Mauro";
+
+    <!--Milestone 2-->
+    List<int> numeri = new List<int>();
+
+    List<int> StampaNumeri(int numeroFinale){
+
+        for(int i = 1; i<=numeroFinale; i++){
+            numeri.Add(i);
+        }
+        return numeri;
+    }
+    StampaNumeri(5);
+
+    <!--Milestone 3-->
+    string citazione = "nel mezzo del cammin di nostra vita";
+    int contatore = 0;
+
+    foreach(char carattere in citazione){
+        if(carattere.Equals('a'))
+            contatore++;
+    }
+
+    <!--Milestone 4-->
+    List<int> numeriRandom = new List<int>();
+    for(int i = 0; i < 20; i++){
+        numeriRandom.Add(new Random().Next(1, 91));
+    }
 }
 
 <div class="text-center">
-
-    <table class="table">
-      <thead>
-        <tr>
-            <th scope="col">Titolo</th>
-            <th scope="col">Descrizione</th>
-            <th scope="col">immagine</th>
-            <th scope="col">Prezzo</th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach(Pizza pizza in lista){
-            <tr>
-                <img src="@pizza.Immagine">
-                <h1>@pizza.Nome</h1>
-                <p>@pizza.Nome</p>
-                <h2>@pizza.Prezzo €</h2>
-            </tr>
-        }
-      </tbody>
-</table>
     
+    <!--Milestone 1-->
+    <h2>@nome @cognome</h2>
+
+    <!--Milestone 2-->
+    <span>
+        @foreach(int numero in numeri){
+            <span>@numero</span>
+        }
+    </span>
+
+    <!--Milestone 3-->
+    <h3>Nella frase "@citazione" ci sono @contatore volte "a"</h3>
+
+    <!--Milestone 4-->
+    @foreach(int numero in numeriRandom){
+        @if(numero>= 20 && numero <= 70){
+            <span>@numero</span>
+        }
+        //}else{ DEBUG PER MOSTRARE ANCHE GLI ALTRI NUMERI
+        //    <span style="color:red;">@numero</span>
+        //}
+    }
+
 </div>
